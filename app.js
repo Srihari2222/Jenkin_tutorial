@@ -3,7 +3,7 @@ const mongoose = require('mongoose');
 const userRoutes = require('./routes/user');
 const productRoutes = require('./routes/product');
 const orderRoutes = require('./routes/order');
-const config = require('./config');
+// const config = require('./config');
 
 const app = express();
 
@@ -16,8 +16,8 @@ app.use('/api/products', productRoutes);
 app.use('/api/orders', orderRoutes);
 
 // Connect to MongoDB
-mongoose.connect(config.mongoURI, { useNewUrlParser: true, useUnifiedTopology: true })
-    .then(() => console.log('MongoDB connected'))
+mongoose.connect(process.env.monogoURL, { useNewUrlParser: true, useUnifiedTopology: true })
+    .then(() => console.log('MongoDB connected HHHIII'))
     .catch(err => console.log(err));
 
 const PORT = process.env.PORT || 5000;
