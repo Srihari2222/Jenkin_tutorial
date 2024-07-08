@@ -16,7 +16,8 @@ app.use('/api/products', productRoutes);
 app.use('/api/orders', orderRoutes);
 
 // Connect to MongoDB
-mongoose.connect(process.env.monogoURL, { useNewUrlParser: true, useUnifiedTopology: true })
+const mongo_url = process.env.MONGO_URL
+mongoose.connect(mongo_url, { useNewUrlParser: true, useUnifiedTopology: true })
     .then(() => console.log('MongoDB connected HHHIII'))
     .catch(err => console.log(err));
 
